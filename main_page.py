@@ -18,21 +18,24 @@ def header_style():
 #  Displaying what options we offer
 def options():
   print("")
-  print("-ˋˏ✄┈┈┈┈")
+  print("-ˋˏ✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈")
   hex("Table of Contents", "FFFFFF")
-  hex(" ╰┈➤ " + "Digital Growth          --> 1", '#f700ff')
-  hex(" ╰┈➤ " + "Digitalization          --> 2", '#f700ff')
-  hex(" ╰┈➤ " + "Dropout                 --> 3", '#f700ff')
-  hex(" ╰┈➤ " + "Ecommerce Growth        --> 4", '#f700ff')
-  hex(" ╰┈➤ " + "Education Spending      --> 5", '#f700ff')
-  hex(" ╰┈➤ " + "Education Trends        --> 6", '#f700ff')
-  hex(" ╰┈➤ " + "Global Inequality       --> 7", '#f700ff')
-  hex(" ╰┈➤ " + "Healthcare Expenditure  --> 8", '#f700ff')
-  hex(" ╰┈➤ " + "Tourism Revenue         --> 9", '#f700ff')
-  hex(" ╰┈➤ " + "Unemployment Rate       --> 10", '#f700ff')
-  hex(" ╰┈➤ " + "Vaccine Coverage        --> 11", '#f700ff')
-  hex(" ╰┈➤ " + "Exit                    --> 12", '#f700ff')
-  print("-ˋˏ✄┈┈┈┈")
+  hex(" ╰┈➤ " + "Digital Growth                               --> 1", '#f700ff')
+  hex(" ╰┈➤ " + "Digitalization                               --> 2", '#f700ff')
+  hex(" ╰┈➤ " + "Dropout                                      --> 3", '#f700ff')
+  hex(" ╰┈➤ " + "Ecommerce Growth                             --> 4", '#f700ff')
+  hex(" ╰┈➤ " + "Education Spending                           --> 5", '#f700ff')
+  hex(" ╰┈➤ " + "Education Trends                             --> 6", '#f700ff')
+  hex(" ╰┈➤ " + "GDP                                          --> 7", '#f700ff')
+  hex(" ╰┈➤ " + "Global Inequality                            --> 8", '#f700ff')
+  hex(" ╰┈➤ " + "Healthcare Expenditure                       --> 9", '#f700ff')
+  hex(" ╰┈➤ " + "Tourism Revenue                              --> 10", '#f700ff')
+  hex(" ╰┈➤ " + "Unemployment Rate                            --> 11", '#f700ff')
+  hex(" ╰┈➤ " + "Vaccine Coverage                             --> 12", '#f700ff')
+  hex(" ╰┈➤ " + "World Development Indicators (India)         --> 13", '#f700ff')
+  hex(" ╰┈➤ " + "World Development Indicators (World)         --> 14", '#f700ff')
+  hex(" ╰┈➤ " + "Exit                                         --> 15", '#f700ff')
+  print("-ˋˏ✄┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈")
 
 def selection():
     while True:
@@ -48,10 +51,54 @@ def selection():
         hex("Please select the number corresponding to one of the following options: ", '#3756ff')
         options()
       else:
-            return(a)
-    
+            return(int(a))
+
+# Information
+def return_values(heading, desc, df, sub_opt, opt_no(), graph_kind, x, y, color):
+  print('')
+  hex("\n"+"─── ⋆⋅☆⋅⋆ ──" + " 「 ✦ " + heading + " ✦ 」" + "─── ⋆⋅☆⋅⋆ ──"+"\n", '#d41c94')
+  print('')
+  hex(desc, '#3756ff')
+  print('')
+  print(df)
+  if sub_opt == 'y' or sub_opt == 'Y':
+    print('')
+    while True:
+      hex('This category has sub-options. Do you want to view sub-options? (select y/n)', '#ff8937')
+      i=input()
+      if i == 'y' or i == 'Y':
+        hex('Selected Yes!', '#00da17')
+        hex(opt_no(), '#ce7eff')
+        break
+      elif i == 'n' or i == 'N':
+        hex('Selcted No!', '#ed2e2e')
+        break
+      else:
+        hex('Not a valid option. Please select (y/n)', '#ff8937')
+  else:
+    print('')
+  while True:
+    hex('Do you want to view graphs for this dataset? (select y/n)', '#ff8937')
+    j=input()
+    if j == 'y' or j == 'Y':
+      hex('Selected Yes!', '#00da17')
+      hex('Displaying the requested graph: -', "#ff82db")
+      try:
+        graph(df, graph_kind, x, y, color)
+      except Exception as e:
+        hex('An error occured')
+      break
+    elif j == 'n' or j == 'N':
+      hex('Selected No!', '#ed2e2e')
+      break
+    else:
+      hex('Not a valid option. Please select (y/n)', '#ff8937')
+
+
+
+
 #  Setting formatting for each menu
-def page_style(heading):
+def menu_style(heading):
   print('')
   hex("\n"+"─── ⋆⋅☆⋅⋆ ──" + " 「 ✦ " + heading + " ✦ 」" + "─── ⋆⋅☆⋅⋆ ──"+"\n", '#d41c94')
   print('')
@@ -62,6 +109,7 @@ def main():
   header_style()
   options()
   selection()
+  return_values('hed', 'desc', pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\Digital_Growth_Rates_India_vs_World.csv'), 'y', {'opt':'dict'})
   
 if __name__ == "__main__":
-    main() 
+    main()
