@@ -11,7 +11,7 @@ from colorist import hex, bg_hex
 #  Adding header
 def header_style():
   print('')
-  hex("꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦"*4 + '----> ' +"𝐂𝐎𝐕𝐈𝐃-𝟏𝟗: 𝐈𝐌𝐏𝐀𝐂𝐓𝐒 𝐎𝐍 𝐓𝐇𝐄 𝐖𝐎𝐑𝐋𝐃 𝐕𝐒 𝐈𝐍𝐃𝐈𝐀" + '<---' + "꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦"*4, "#ff3333")
+  hex("꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦"*2 + '----> ' +" 𝗖 𝗢 𝗩 𝗜 𝗗 - 𝟭 𝟵 :  𝗜 𝗠 𝗣 𝗔 𝗖 𝗧 𝗦  𝗢 𝗡  𝗧 𝗛 𝗘  𝗪 𝗢 𝗥 𝗟 𝗗  𝗩 𝗦  𝗜 𝗡 𝗗 𝗜 𝗔 " + '<---' + "꒷꒦︶꒷꒦︶ ๋ ࣭ ⭑꒷꒦"*2, "#ff3333")
   print('')
   hex("desc", '#334cff')
       
@@ -35,18 +35,20 @@ def options():
   print("-ˋˏ✄┈┈┈┈")
 
 def selection():
-  print('')
-  a=int(input(hex("Please select the number corresponding to one of the aforementioned options: ", '#000fff')))
-  if not a.isdigit():
-    print(hex("Oops! Choice cannot be accepted!", 'red'))
-    options()
-    print(hex("Please select one of the aforementioned options: ", '#000fff'))
-  elif a<1 or a>11:
-    print(hex("Oops! Choice cannot be accepted!", 'red'))
-    options()
-    print(hex("Please select one of the aforementioned options: ", '#000fff'))
-  else:
-    return(a)
+    while True:
+      print('')
+      hex("Please select the number corresponding to one of the aforementioned options: ", '#3756ff')
+      a=input()
+      if not a.isdigit():
+        hex("Oops! Choice cannot be accepted!", '#ff0000')
+        hex("Please select the number corresponding to one of the following options: ", '#3756ff')
+        options()
+      elif int(a)<1 or int(a)>12:
+        hex("Oops! Choice cannot be accepted!", '#ff0000')
+        hex("Please select the number corresponding to one of the following options: ", '#3756ff')
+        options()
+      else:
+            return(a)
     
 #  Setting formatting for each menu
 def page_style(heading):
@@ -62,4 +64,4 @@ def main():
   selection()
   
 if __name__ == "__main__":
-    main()  
+    main() 
