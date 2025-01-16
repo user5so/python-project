@@ -11,9 +11,10 @@ from colorist import hex, bg_hex
 # --> First, let's make our interface more appealing by adding a header and formatting for all menus Adding header
 def header_style():
   print('')
-  hex("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──" + '---> ' +" 𝗖 𝗢 𝗩 𝗜 𝗗 - 𝟭 𝟵 :  𝗜 𝗠 𝗣 𝗔 𝗖 𝗧 𝗦  𝗢 𝗡  𝗧 𝗛 𝗘  𝗪 𝗢 𝗥 𝗟 𝗗  𝗩 𝗦  𝗜 𝗡 𝗗 𝗜 𝗔 " + '<---' + "─── ⋆⋅☆⋅⋆ ──*─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──","#ff3333")
+  hex("─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──" + '> ' +" 𝗖 𝗢 𝗩 𝗜 𝗗 - 𝟭 𝟵 :  𝗜 𝗠 𝗣 𝗔 𝗖 𝗧 𝗦  𝗢 𝗡  𝗧 𝗛 𝗘  𝗪 𝗢 𝗥 𝗟 𝗗  𝗩 𝗦  𝗜 𝗡 𝗗 𝗜 𝗔 " +
+      '<' + "─── ⋆⋅☆⋅⋆ ──*─── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ───── ⋆⋅☆⋅⋆ ──","#ff3333")
   print('')
-  
+  #hex("CoviStats: A comprehensive CLI tool for analyzing the global and India-specific impacts of COVID-19. This program provides users with real-time data, insightful visualizations, and statistical comparisons between the worldwide and Indian pandemic scenarios, helping to understand trends, and recovery patterns. Ideal for data enthusiasts, researchers, and analysts interested in exploring COVID-19's effects on a global scale.", '#334cff')
 
 
 # --> Setting formatting for each menu
@@ -64,7 +65,7 @@ def selection():
 
 
 # --> Creating a function for information that will be displayed on selection
-def return_values(heading, df, sub_opt, title, col1, col2):
+def return_values(heading, desc, df, sub_opt, title, col1, col2):
   print('')
   hex("\n"+"─── ⋆⋅☆⋅⋆ ──"*3 + " 「 ✦ " + heading + " ✦ 」" + "─── ⋆⋅☆⋅⋆ ──"*3 +"\n", '#d41c94')
   print('')
@@ -211,6 +212,7 @@ def main():
     a=selection()
     if a == 1:
       return_values('Digital Growth Rate (%)'
+                    , 'Digital Growth: This option in CoviStats explores the rapid expansion of digital technologies and online platforms during and after the COVID-19 pandemic. Users can analyze data on the acceleration of digital adoption globally and in India, helping to understand the long-term impact of these shifts on economies and societies.'
                     , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\Digital_Growth_Rates_India_vs_World.csv')
                     , 'y'
                     , 'Digital Growth Rate (%)'
@@ -218,6 +220,7 @@ def main():
                     , 'World_Digital_Growth_Rate (%)')
     elif a == 2:
       return_values('Digitalization (%)'
+                    , 'Digitalization: This option in CoviStats provides an analysis of how the COVID-19 pandemic accelerated digital transformation across the globe and in India. By comparing pre-pandemic and post-pandemic statistics, users can explore the profound shifts in digital engagement and how technology played a critical role in adapting to the challenges posed by the pandemic.Digitalization: This option in CoviStats provides an analysis of how the COVID-19 pandemic accelerated digital transformation across the globe and in India. By comparing pre-pandemic and post-pandemic statistics, users can explore the profound shifts in digital engagement and how technology played a critical role in adapting to the challenges posed by the pandemic.'
                     , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\India_vs_World_Digitalization_1999_2024.csv')
                     , 'y'
                     , 'Digitalization (%)'
@@ -225,6 +228,7 @@ def main():
                     , 'World_Digitalization_Percentage')
     elif a == 3:
         return_values('Dropout Rate (%)'
+                      , 'Dropout Rates: This option in CoviStats examines the impact of the COVID-19 pandemic on education systems, focusing on the increase in student dropout rates globally and in India. Users can explore trends over time and assess the long-term effects on education outcomes and inequality.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\dropout_rate_india_vs_world_2001_2023.csv')
                       , 'y'
                       , 'Dropout Rate (%)'
@@ -232,6 +236,7 @@ def main():
                       , 'World_Dropout_Rate (%)')
     elif a == 4:
         return_values('E-commerce Growth Rate (%)'
+                      , 'E-Commerce Growth Rate: This option in CoviStats analyzes the surge in e-commerce activity during and after the COVID-19 pandemic, both globally and in India. Users can explore key data points and trends, comparing pre-pandemic and post-pandemic e-commerce performance to understand the long-term shift in the retail industry.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\ECommerce_Growth_Rates_India_vs_World.csv')
                       , 'y'
                       , 'E-commerce Growth Rate (%)'
@@ -239,6 +244,7 @@ def main():
                       , 'World_E-Commerce_Growth_Rate (%)')
     elif a == 5:
         return_values('Education Spending'
+                      , 'Education Spending: This option in CoviStats examines the financial impact of the COVID-19 pandemic on education systems worldwide and in India. Users can explore how the pandemic reshaped education budgets and investments, and assess the long-term implications for educational equity and quality.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\education_spending_india_vs_world_2001_2023.csv')
                       , 'y'
                       , 'Education Spending'
@@ -246,6 +252,7 @@ def main():
                       , 'World_Public_Spending_on_Education (% of GDP)')
     elif a == 6:
         return_values('Primary Enrollment (%)'
+                      , 'Primary Enrollment: This option in CoviStats explores the trends in primary school enrollment rates globally and in India, highlighting the impact of the COVID-19 pandemic on early education. Users can analyze data on enrollment increases or declines, and assess the broader implications for primary education systems and child development.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\India_vs_World_Primary_Enrollment_2001_2023.csv')
                       , 'y'
                       , 'Primary Enrollment (%)'
@@ -253,6 +260,7 @@ def main():
                       , 'World (%)')
     elif a == 7:
         return_values('GDP growth (gross domestic product)'
+                      , 'GDP Growth: This option in CoviStats provides an analysis of the impact of the COVID-19 pandemic on the economic growth of countries, with a particular focus on global and Indian GDP trends. Users can explore GDP growth rates over time.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\GDP india vs world sourced from IMF.csv')
                       , 'y'
                       , 'GDP growth (%)'
@@ -260,6 +268,7 @@ def main():
                       , 'Real GDP growth (Annual percent change)World')
     elif a == 8:
         return_values('Poverty Rate (%)'
+                      , 'This option in CoviStats analyzes the impact of the COVID-19 pandemic on poverty rates globally and in India. Users can explore changes in poverty statistics, understand the socio-economic effects of the pandemic, and assess the long-term challenges.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\Global_Inequality_India_vs_World.csv')
                       , 'y'
                       , 'Poverty Rate (%)'
@@ -267,6 +276,7 @@ def main():
                       , 'Global_Poverty_Rate (%)')
     elif a == 9:
         return_values('Healthcare Expenditure (% of GDP)'
+                      , 'Healthcare Expenditure: This option in CoviStats examines the changes in healthcare spending during and after the COVID-19 pandemic, both globally and in India. Users can explore shifts in healthcare budgets, the prioritization of public health, and the long-term financial implications of the pandemic on healthcare systems worldwide.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\India_vs_World_Healthcare_Expenditure.csv')
                       , 'y'
                       , 'Healthcare Expenditure (% of GDP)'
@@ -274,18 +284,20 @@ def main():
                       , 'World (% of GDP)')
     elif a == 10:
         return_values('Unemployment Rate (%)'
+                      , 'Unemployment Rate: This option in CoviStats analyzes the impact of the COVID-19 pandemic on global and Indian unemployment rates. Users can explore trends in unemployment, examine the effects of government policies, and understand the broader economic and social consequences of the pandemic on workforce participation.'
                       , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\India_vs_World_Unemployment_2001_2024.csv')
                       , 'y'
                       , 'Unemployment Rate (%)'
-                      , 'India_Unemployment_Rate'
-                      , 'world_Unemployment_Rate')
+                      , 'India_Unemployment_Rate' 
+                      , 'World_Unemployment_Rate')
     elif a == 11:
         return_values('Vaccine Coverage (%)'
-                      , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\India_vs_World_Unemployment_2001_2024.csv')
+                      , 'Vaccine Coverage: This option in CoviStats provides an in-depth analysis of COVID-19 vaccine distribution and coverage rates globally and in India. Users can assess the impact of vaccination efforts on pandemic control and public health outcomes.'
+                      , pd.read_csv(r'C:\Users\pingpong\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.12\India_vs_World_Vaccine_Coverage_1999_2024.csv')
                       , 'y'
                       , 'Vaccine Coverage (%)'
-                      , 'India_Vaccine_Coverage_%'
-                      , 'World_Vaccine_Coverage_%')
+                      , 'India_Vaccine_Coverage(%)'
+                      , 'World_Vaccine_Coverage(%)')
     elif a == 12:
       hex('Exiting...! Thank you for using CoviStats!', '#00da17')
       break
